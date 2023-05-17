@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
-    <script src="js/login.js" defer></script>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="../js/login.js" defer></script>
 
     <title>Entrar</title>
 </head>
 <body>
     <div>
+        
         <div id="msgError"></div>
+
         <form action="index.html" method="get" onsubmit="return false">
             <fieldset>
                 <legend>Login</legend>
@@ -20,21 +24,18 @@
                 <input type="hidden" name="token" value="seus-dados">
 
                 <div>
-                    <label for="Usuário">Usuário</label>
+                    <label for="idUser">Usuário</label>
                     <input type="text" name="txtUser" id="idUser" placeholder="Usuário">
                 </div>
-
-                <div>
+                 <div>
                     <label for="idPass">Senha</label>
-                    <input type="Password" name="txtPass" id="idPass" placeholder="Senha">
+                    <input type="password" name="txtPass" id="idPass" placeholder="Senha">
                     <i class="fa fa-eye" aria-hidden="true"></i>
                 </div>
-
                 <div>
-                    <label for="idGravados">Gravar Dados</label>
-                    <input type="checkbox" name="chkDta" id="idGravados" value="ok" placeholder="Usuário">
+                    <label for="idGravaDados">Gravar Dados</label>
+                    <input type="checkbox" name="chkDta" id="idGravaDados" value="ok" placeholder="Usuário">
                 </div>
-
                 <div>
                     <button type="submit" value="Login" id="btnSubmit">Login</button>
                     <button type="reset" value="Limpar" id="btnLimpar">Limpar</button>

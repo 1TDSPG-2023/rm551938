@@ -1,57 +1,67 @@
 //Gerando um token com Math.
-
-let tokenGerado = Math.random().toString(32).substring(2);
-
-//declarando objetos
+let tokenGerado = Math.random().toString(16).substring(2);
+//DECLARANDO OBJETOS
 const usuario1 = {
     nomeUsuario : "denden",
-    senhaUsuario : "12345",
+    senhaUsuario: "12345",
     gravaDados : true,
     token : tokenGerado
 }
 
-tokenGerado = Math.random().toString(32).substring(2);
-console.log(tokenGerado);
-
-//declarando objetos
+tokenGerado = Math.random().toString(16).substring(2);
+//DECLARANDO OBJETOS
 const usuario2 = {
     nomeUsuario : "gege",
-    senhaUsuario : "12345",
+    senhaUsuario: "12345",
     gravaDados : true,
     token : tokenGerado
 }
 
-let listaDeUsuarios =  [];
+let listaDeUsuarios = [];
 listaDeUsuarios.push(usuario1);
 listaDeUsuarios.push(usuario2);
 
-console.log(listaDeUsuarios);
-
 addEventListener("click", (evt)=>{
+    const inputUser = document.querySelector("#idUser");
+    const inputPass = document.querySelector("#idPass");
 
-    if(evt.target.id == "btnSubmit"){}
-        const inputUser = document.querySelector("#idUser");
-        const inputPass = document.querySelector("#idPass");
-    //console.log(inputUser.value) resgata o valor que foi inputado pelo usuario no site
-    
-    try{
+    if(evt.target.id == "btnSubmit"){
         
-        listaDeUsuarios.forEach((usuario)=>{
-            if(inputUser.value == usuario.nomeUsuario && inputPass.value == usuario.senhaUsuario){
-                throw "Validado!";
+        try {
+            
+            listaDeUsuarios.forEach((usuario)=>{
+                
+                if(inputUser.value == usuario.nomeUsuario && inputPass.value == usuario.senhaUsuario){
+                    throw "VALIDADO";
+                }
+            });
+            
+            throw "NÃO VALIDADO";
+
+        } catch (msg) {
+            const msgError = document.querySelector("#msgError");
+            if(msg == "VALIDADO"){
+                msgError.setAttribute("style","color:#00ff00;");
+                msgError.innerHTML = "<span><strong>Login efetuado com Sucesso!</strong></span>";
+            }else{
+                msgError.setAttribute("style","color:#ff0000;");
+                msgError.innerHTML = "<span><strong>Usuário ou senha inválidos!</strong></span>";
             }
-        })
-
-        throw "Não Validado";
-
-    } catch(msg){
-        const msgError = document.querySelector("#msgError");
-        if(msg == "Validado!"){
-            msgError.setAttribute("style","color: #00ff00;");
-            msgError.innerHTML = "<spam><strong>Login efetuado com sucesso!</strong></spam>";
-        }else{
-            msgError.setAttribute("style","color: #ff0000;");
-            msgError.innerHTML = "<spam><strong>Usuario ou senha invalidos!</strong></spam>";
         }
+
+//DESAFIO:
+//Troque o ícone do olho aberto assim que o usuário clicar para ver a senha pelo ícone de olho cortado.
+
+    }else if(evt.target.className == "fa fa-eye" || evt.target.className == "fa fa-eye-slash"){
+        //Mostrando a senha!
+        if(inputPass.getAttribute("type") == "password"){
+            evt.target.setAttribute("class","fa fa-eye-slash");
+            inputPass.setAttribute("type","text");
+        }else{
+        //Ocultando a senha!
+            inputPass.setAttribute("type","password");
+            evt.target.setAttribute("class","fa fa-eye");
+        }
+        
     }
 });
