@@ -1,0 +1,29 @@
+/*
+
+    Determine para a class conteudo display:flex
+    Adicione a propriedade flex-warp:warp
+    Largura máxima de 800px
+    margin: topo e botton:0 / left e right: auto
+
+    vw = view width
+    vh = view heigh
+
+*/
+
+.conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+.conteudo >div img {
+    max-width: 100%;
+    display: block;
+}
+
+.conteudo >div {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 300px;
+}

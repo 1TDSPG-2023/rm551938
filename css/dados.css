@@ -1,0 +1,34 @@
+.dados {
+    margin: 5% auto;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+td,th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(odd){
+    background-color: #dddddd;    
+}
+
+td:nth-child(even), th:nth-child(even) {
+    background-color: #d6eeee;
+}
+
+td[rowspan] {
+    text-align: center;
+}
+
+th {
+    text-align: center;
+}
+
+tr:hover {
+    background-color: #d6eeee;
+}
